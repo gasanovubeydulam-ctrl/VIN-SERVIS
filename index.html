@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>VIN Checker</title>
+<title>VIN-servis</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -66,10 +66,11 @@
 
 <body>
 
-<h2>Проверка VIN</h2>
+<h2>VIN-servis</h2>
 
 <input id="vin" placeholder="Введите VIN">
 <button onclick="check()">Проверить</button>
+<button onclick="clearField()">Очистить</button>
 
 <p id="result"></p>
 
@@ -87,6 +88,11 @@ function check(){
   } else {
     document.getElementById("result").innerHTML = "VIN не найден";
   }
+}
+
+function clearField(){
+  document.getElementById("vin").value = "";
+  document.getElementById("result").innerHTML = "";
 }
 </script>
 
