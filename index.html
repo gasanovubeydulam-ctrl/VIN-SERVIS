@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>VIN Проверка</title>
+</head>
+
+<body>
+
+<h2>Проверка VIN</h2>
+
+<input id="vin">
+<button onclick="check()">Проверить</button>
+
+<p id="result"></p>
+
+<script>
+
+let cars = {
+"XTA210990J1234567":"Lada Vesta 2021",
+"XTA219010J9876543":"Lada Granta 2019",
+"1HGCM82633A004352":"Honda Accord 2003"
+};
+
+function check(){
+
+let vin=document.getElementById("vin").value;
+
+if(cars[vin]){
+document.getElementById("result").innerHTML=cars[vin];
+}
+
+else{
+document.getElementById("result").innerHTML="VIN не найден";
+}
+
+}
+
+</script>
+
+</body>
+</html>
