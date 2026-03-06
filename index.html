@@ -1,40 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-<title>VIN Проверка</title>
+<meta charset="UTF-8">
+<title>VIN Checker</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  #vin {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s;
+  }
+
+  #vin:focus {
+    border-color: #007bff;
+  }
+
+  button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  #result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    padding: 10px 20px;
+    background: #e2e8f0;
+    border-radius: 5px;
+    min-width: 250px;
+    text-align: center;
+  }
+</style>
 </head>
 
 <body>
 
 <h2>Проверка VIN</h2>
 
-<input id="vin">
+<input id="vin" placeholder="Введите VIN">
 <button onclick="check()">Проверить</button>
 
 <p id="result"></p>
 
 <script>
-
 let cars = {
-"XTA210990J1234567":"Lada Vesta 2021",
-"XTA219010J9876543":"Lada Granta 2019",
-"1HGCM82633A004352":"Honda Accord 2003"
+  "XTA210990J1234567":"Lada Vesta 2021",
+  "XTA219010J9876543":"Lada Granta 2019",
+  "1HGCM82633A004352":"Honda Accord 2003"
 };
 
 function check(){
-
-let vin=document.getElementById("vin").value;
-
-if(cars[vin]){
-document.getElementById("result").innerHTML=cars[vin];
+  let vin = document.getElementById("vin").value.toUpperCase().trim();
+  if(cars[vin]){
+    document.getElementById("result").innerHTML = cars[vin];
+  } else {
+    document.getElementById("result").innerHTML = "VIN не найден";
+  }
 }
-
-else{
-document.getElementById("result").innerHTML="VIN не найден";
-}
-
-}
-
 </script>
 
 </body>
